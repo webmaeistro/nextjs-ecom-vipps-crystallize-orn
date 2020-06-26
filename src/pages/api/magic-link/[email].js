@@ -36,7 +36,7 @@ export default async (req, res) => {
   }
 
   const token = jwt.sign({ email }, secret, {
-    expiresIn: '36000s'
+    expiresIn: '3600s'
   });
 
   const magicLink = `${getHost(req)}/api/verify?token=${token}`;

@@ -103,7 +103,21 @@ export default function VippsOrderNormalizer({ vippsOrderId, vippsData }) {
     return {
       customer: {
         firstName: personalDetails.firstName,
-        lastName: personalDetails.lastName
+        lastName: personalDetails.lastName,
+        addresses: [
+          {
+            type: 'delivery',
+            firstName: userDetails.firstName,
+            lastName: userDetails.lastName,
+            street: shippingDetails.address.addressLine1,
+            street2: shippingDetails.address.addressLine2,
+            postalCode: shippingDetails.address.postCode,
+            city: shippingDetails.address.city,
+            country: shippingDetails.address.country,
+            phone: userDetails.mobileNumber,
+            email: userDetails.email
+          }
+        ]
       },
       cart: orderItemsArray,
 

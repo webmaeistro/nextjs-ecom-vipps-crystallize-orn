@@ -12,7 +12,7 @@ export default function ProductItem({ data }) {
   }
   let image;
 
-  const { name, path, type, variants } = data;
+  const { name, path, type, variants, summary } = data;
   const { price, image: i } = variants
     ? variants.find((variant) => variant.isDefault)
     : {};
@@ -28,10 +28,11 @@ export default function ProductItem({ data }) {
           </ImageWrapper>
 
           <Text>
+            <H3>{name}</H3>
             <Price>
               <CurrencyValue value={price} />
             </Price>
-            <H3>{name}</H3>
+            <H3>{summary}</H3>
           </Text>
         </Inner>
       </Outer>

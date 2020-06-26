@@ -31,7 +31,7 @@ export const Title = styled(H3)`
   text-transform: uppercase;
   color: var(--color-text-main);
   font-weight: 900;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'VippsText', sans-serif;
 `;
 
 export const Text = styled.div`
@@ -54,7 +54,7 @@ export const Price = styled.span`
 
 export const Outer = styled.a`
   position: relative;
-  background: var(--color-box-background);
+  background: var(--color-VippsWhite);
   height: 100%;
   display: flex;
   padding: 0 50px;

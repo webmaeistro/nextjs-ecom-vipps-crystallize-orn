@@ -2,17 +2,15 @@ import React from 'react';
 //import Router from 'next/router';
 import styled from 'styled-components';
 
-//import StripeCheckout from './stripe';
-
 import VippsCheckout from './vipps';
 
 import {
   Form,
-  /* 
+  /*
   Input,
   InputGroup,
   Label,
-*/
+  */
   PaymentSelector,
   PaymentMethods,
   PaymentButton,
@@ -38,8 +36,7 @@ const Inner = styled.div`
 export default class PaymentGateway extends React.Component {
   state = {
     paymentMethod: null
-    /* 
-   firstName: '',
+    /*    firstName: '',
     lastName: '',
     email: '',
     */
@@ -48,11 +45,11 @@ export default class PaymentGateway extends React.Component {
   render() {
     const { items, currency } = this.props;
     const { paymentMethod } = this.state;
-    //                       ^, firstName, lastName, email
+    //                       ^firstName, lastName, email
     const personalDetails = {
       //    firstName,
-      //    lastName,
-      //   email,
+      //   lastName,
+      //    email,
     };
 
     return (
@@ -98,11 +95,10 @@ export default class PaymentGateway extends React.Component {
             </InputGroup>
           </Row>
     */}
-
-          <SectionHeader>Betal med Vipps hurtigkasse</SectionHeader>
+          <SectionHeader>Faktura medfølger pakken</SectionHeader>
           <PaymentMethods>
             <PaymentSelector>
-              {/*}    <PaymentButton
+              {/*}     <PaymentButton
                 color="#6773E6"
                 type="button"
                 active={paymentMethod === 'stripe'}
@@ -126,7 +122,7 @@ export default class PaymentGateway extends React.Component {
                 onClick={() => this.setState({ paymentMethod: 'vipps' })}
               >
                 <img
-                  src="/static/pay_with_vipps_rect_250_NO.png"
+                  src="static/pay_with_vipps_rect_250_NO.png"
                   alt="Vipps logo"
                 />
               </PaymentButton>

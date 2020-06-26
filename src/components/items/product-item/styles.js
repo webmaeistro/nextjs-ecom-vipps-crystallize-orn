@@ -40,7 +40,7 @@ export const Img = styled(Image)`
 
   > img {
     display: block;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     width: 100%;
     height: 100%;
@@ -50,12 +50,12 @@ export const Img = styled(Image)`
 
 export const Text = styled.div`
   z-index: 2;
-  width: 100%;
-  height: 150px;
+  width: 150px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
+  text-align: left;
   left: 0;
   width: 100%;
   padding: 1em;
@@ -65,7 +65,7 @@ export const Text = styled.div`
     font-size: 1.5rem;
     text-transform: uppercase;
     color: inherit;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'VippsDisplay', sans-serif;
     margin: 0;
   }
 `;
