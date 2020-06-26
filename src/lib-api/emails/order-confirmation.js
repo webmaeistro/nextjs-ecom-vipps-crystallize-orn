@@ -28,15 +28,16 @@ export default async function sendOrderConfirmation(orderId) {
         <mj-section>
           <mj-column>
             <mj-text>
-              <h1>Order Summary</h1>
-              <p>Thanks for your order! This email contains a copy of your order for your reference.</p>
+              <h1>Bekreftelse på bokjøp</h1>
+              <p>Takk for ditt kjøpt av bok fra Ørn forlag (ornforlag.no) sin nett handel. Her følger en kvitering av transaksjonen</p>
               <p>
                 Order Number: <strong>#${order.id}</strong>
               </p>
               <p>
-                First name: <strong>${order.customer.firstName}</strong><br />
-                Last name: <strong>${order.customer.lastName}</strong><br />
-                Email address: <strong>${email}</strong>
+                Fornavn: <strong>${order.customer.firstName}</strong><br />
+                Etternavn: <strong>${order.customer.lastName}</strong><br />
+                Epost: <strong>${email}</strong>
+                Addresse: <strong>${order.customer.addresses[0]}</strong><br />
               </p>
               <p>
                 Total: <strong>${formatCurrency({
@@ -47,9 +48,9 @@ export default async function sendOrderConfirmation(orderId) {
             </mj-text>
             <mj-table>
               <tr style="border-bottom:1px solid #ecedee;text-align:left;">
-                <th style="padding: 0 15px 0 0;">Name</th>
-                <th style="padding: 0 15px;">Quantity</th>
-                <th style="padding: 0 0 0 15px;">Total</th>
+                <th style="padding: 0 15px 0 0;">Tittel</th>
+                <th style="padding: 0 15px;">Antall</th>
+                <th style="padding: 0 0 0 15px;">Totalt</th>
               </tr>
               ${order.cart.map(
                 (item) => `<tr>
@@ -76,7 +77,7 @@ export default async function sendOrderConfirmation(orderId) {
       await sgMail.send({
         to: email,
         from: 'webmaster@ornforlag.no',
-        subject: 'Order Summary',
+        subject: 'Ørn forlag | Ordre kvitering for bokkjøp på ornforlag.no',
         html
       });
     }

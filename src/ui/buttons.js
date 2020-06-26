@@ -5,7 +5,7 @@ import { isNot } from 'styled-is';
 import { Spinner } from './spinner';
 
 const STATES = {
-  LOADING: 'loading',
+  LOADING: 'laster'
 };
 
 const Inner = styled.span`
@@ -20,20 +20,20 @@ const Inner = styled.span`
 `;
 
 const Outer = styled.button.attrs((p) => ({
-  type: p.type || 'button',
+  type: p.type || 'button'
 }))`
   min-width: ${(p) => (p.width ? p.width : '120px')};
   display: inline-flex;
-  border-radius: 0;
+  border-radius: 23;
   border: none;
-  border: 2px solid var(--color-text-main);
+  border: 2px solid var(--color-VippsPurple);
   padding: 0;
   appearance: none;
   cursor: pointer;
   text-decoration: none;
 
   &:hover ${Inner} {
-    background: var(--color-text-main);
+    background: var(--color-VippsOrange);
     color: var(--color-main-background);
   }
 

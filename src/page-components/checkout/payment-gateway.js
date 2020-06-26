@@ -1,21 +1,23 @@
 import React from 'react';
-import Router from 'next/router';
+//import Router from 'next/router';
 import styled from 'styled-components';
 
-import StripeCheckout from './stripe';
-import KlarnaCheckout from './klarna';
+//import StripeCheckout from './stripe';
+//import KlarnaCheckout from './klarna';
 import VippsCheckout from './vipps';
 
 import {
   Form,
+  /* 
   Input,
   InputGroup,
   Label,
+*/
   PaymentSelector,
   PaymentMethods,
   PaymentButton,
   PaymentMethod,
-  SectionHeader,
+  SectionHeader
 } from './styles';
 
 const Row = styled.div`
@@ -35,43 +37,47 @@ const Inner = styled.div`
 
 export default class PaymentGateway extends React.Component {
   state = {
-    paymentMethod: null,
-    firstName: '',
+    paymentMethod: null
+    /* 
+   firstName: '',
     lastName: '',
     email: '',
+    */
   };
 
   render() {
     const { items, currency } = this.props;
-    const { paymentMethod, firstName, lastName, email } = this.state;
-
+    const { paymentMethod } = this.state;
+    //                       ^, firstName, lastName, email
     const personalDetails = {
-      firstName,
-      lastName,
-      email,
+      //    firstName,
+      //    lastName,
+      //   email,
     };
 
     return (
       <Inner>
         <Form noValidate>
+          <Row>Ørn forlag </Row>
+          {/*}
           <Row>
             <InputGroup>
-              <Label htmlFor="firstname"> First Name</Label>
+              <Label htmlFor="firstname"> Fornavn</Label>
               <Input
                 name="firstname"
                 type="text"
-                placeholder="First name"
+                placeholder="Ola"
                 value={firstName}
                 onChange={(e) => this.setState({ firstName: e.target.value })}
                 required
               />
             </InputGroup>
             <InputGroup>
-              <Label htmlFor="lastname"> Last Name</Label>
+              <Label htmlFor="lastname"> Etternavn</Label>
               <Input
                 name="lastname"
                 type="text"
-                placeholder="Last name"
+                placeholder="Nordmann"
                 value={lastName}
                 onChange={(e) => this.setState({ lastName: e.target.value })}
                 required
@@ -80,22 +86,23 @@ export default class PaymentGateway extends React.Component {
           </Row>
           <Row>
             <InputGroup>
-              <Label htmlFor="email"> Email</Label>
+              <Label htmlFor="email"> Epost</Label>
               <Input
                 name="email"
                 type="email"
-                placeholder="Email address"
+                placeholder="din@epost.com"
                 value={email}
                 onChange={(e) => this.setState({ email: e.target.value })}
                 required
               />
             </InputGroup>
           </Row>
+    */}
 
-          <SectionHeader>Choose payment method</SectionHeader>
+          <SectionHeader>Betal med Vipps hurtigkasse</SectionHeader>
           <PaymentMethods>
             <PaymentSelector>
-              <PaymentButton
+              {/*}    <PaymentButton
                 color="#6773E6"
                 type="button"
                 active={paymentMethod === 'stripe'}
@@ -111,15 +118,20 @@ export default class PaymentGateway extends React.Component {
               >
                 <img src="/static/klarna-logo.png" alt="Klarna logo" />
               </PaymentButton>
+    */}
               <PaymentButton
-                color="#FFFFFF"
+                color="#FF5B24"
                 type="button"
                 active={paymentMethod === 'vipps'}
                 onClick={() => this.setState({ paymentMethod: 'vipps' })}
               >
-                <img src="/static/vipps-logo.png" alt="Vipps logo" />
+                <img
+                  src="/static/pay_with_vipps_rect_250_NO.png"
+                  alt="Vipps logo"
+                />
               </PaymentButton>
             </PaymentSelector>
+            {/*
             {paymentMethod === 'stripe' && (
               <PaymentMethod>
                 <StripeCheckout
@@ -145,7 +157,7 @@ export default class PaymentGateway extends React.Component {
                 />
               </PaymentMethod>
             )}
-
+            */}
             {paymentMethod === 'vipps' && (
               <PaymentMethod>
                 <VippsCheckout
